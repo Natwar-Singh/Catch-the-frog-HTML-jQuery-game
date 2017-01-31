@@ -16,7 +16,7 @@
 	}
 	jQuery(document).ready(function(){
 		var count=0;
-		var timer=60;
+		var timer=59;
 		id=jQuery("#tap").settimer();
 		jQuery("#tap").click(function(){
 		count++;
