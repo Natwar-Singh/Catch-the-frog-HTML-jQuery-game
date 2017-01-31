@@ -6,13 +6,13 @@
 			display: inline-block;
 		}
 		.tap_wrap{
-			width: 79%;
+			width: 80%;
 			height: 600px;
 			background-image: url("../sources/grass.png");
-			display: inline-block;
+			float:left;
 		}
 		.result{
-			display: inline-block;
+			float:left;
 			background-color: #42f4b6;
 			width: 20%;
 			height: 600px;
@@ -35,4 +35,5 @@
 			font-size: 20px;
 			margin-top: -5px;
 			text-align: center;
+			clear:left;
 		}
