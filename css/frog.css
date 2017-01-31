@@ -1,0 +1,38 @@
+		#tap{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			background-color: red;
+			display: inline-block;
+		}
+		.tap_wrap{
+			width: 79%;
+			height: 600px;
+			background-image: url("../sources/grass.png");
+			display: inline-block;
+		}
+		.result{
+			display: inline-block;
+			background-color: #42f4b6;
+			width: 20%;
+			height: 600px;
+			vertical-align: top;
+			position: relative;
+			margin: 0px -4px;
+		}
+		#restart{
+			display: none;
+		}
+		#timer{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+		#instruction{
+			background-color: #aaaaaa;
+			margin: 0px;
+			height: 80px;
+			font-size: 20px;
+			margin-top: -5px;
+			text-align: center;
+		}
