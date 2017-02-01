@@ -10,13 +10,21 @@
 	jQuery.fn.reposition=function(){
 		var a=Math.random();
 		var b=Math.random();
-		this.css({"left":a*($(".tap_wrap").width()-100),
-			"top":b*($(".tap_wrap").height()-100),"display":"inline-block"})
+		var x=a*($(".tap_wrap").width()-100);
+		var y=b*($(".tap_wrap").height()-150);
+		if(y<50){
+			y=50;
+		}
+		this.css({"left":x,
+			"top":y,"display":"inline-block"})
+		$('#frogaudio')[0].play();
+
         clearInterval(id);
 		id=this.settimer();
 	}
 	jQuery(document).ready(function(){$(".tap_wrap").height($(window).height());
-		//alert($(window).height());
+		
+		
 		setTimeout(function(){
 			$("#countdown").fadeOut();
 			$("#tap").fadeIn();
@@ -25,9 +33,19 @@
 		id=jQuery("#tap").settimer();
 		jQuery("#tap").click(function(){
 		count++;
-		$("#tap").attr("src","../sources/dead.gif");clearInterval(id);
+		$("#tap").attr("src","../sources/dead.png");
+		
+		$(".tap_wrap").css("cursor","url('../sources/punchclick.png'),auto");
+		$("#tap").css("cursor","url('../sources/punchclick.png'),auto");
+		
+		clearInterval(id);
+		$('#chatAudio')[0].play();
+
 		setTimeout(function(){$("#tap").attr("src","../sources/frog.png");
-	jQuery("#tap").reposition();},700)
+			$(".tap_wrap").css("cursor","url('../sources/punch.png'),auto");
+		$("#tap").css("cursor","url('../sources/punch.png'),auto");
+
+	jQuery("#tap").reposition();},300)
 		
 		jQuery("#score").html("SCORE:"+count);
 			})
@@ -42,17 +60,26 @@
 		clearInterval(id);
 		clearInterval(timer_id);
 		count=0;
+		$(".gameover").css("cursor","default");
 		jQuery("#tap").css({"display":"none"});
 		jQuery(".gameover").fadeIn();
 		}, 1000*60);
-	/*jQuery("#quit").click(function(){
-		window.top.close();
-		console.log("jvhvhj")
-			})*/
+	
 
 	jQuery("#restart").click(function(){
 		location.reload();
 			})
+	 $('.tap_wrap').click(function(e) {
+    var offset = $(this).offset();
+    var x=(e.pageX - offset.left);
+    var y=(e.pageY - offset.top);
+    $("#opps").css({"left":x,
+			"top":y,"display":"inline-block"})
+    setTimeout(function(){
+			$("#opps").css("display","none");
+		},300)
+    
+  });
 	
 
 		},5000);

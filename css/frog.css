@@ -1,9 +1,10 @@
 		#tap{
-			width: 100px;
-			height: 100px;
+			width: 150px;
+			height: 150px;
 			position: absolute;
-			display: none;
-			top:200px;
+			left:50%;
+			top:50px;
+			cursor: url(../sources/punch.png),auto;
 
 
 		}
@@ -12,7 +13,7 @@
 			height: 675px;
 			background-image: url("../sources/grass.png");
 			float:left;
-			
+			cursor: url(../sources/punch.png),auto;
 		}
 		
 		.gameover{
@@ -51,3 +52,30 @@
 			font-size: 100px;
 			display: none;
 		}
+        @media only screen and (max-width: 700px) {
+            .gameover{
+                top: 25%;
+			    left: 10%;
+			    width: 80%;
+			    height: 150px;
+			    cursor: default;
+                }
+             #timer,#score{
+			    font-size: 2em;
+			
+		       }
+          }
+        #opps{
+        	height: 100px;
+        	width: 100px;
+        	position: absolute;
+        	display: none;
+        }
+        #restart{
+        	border-collapse: collapse;
+        	border-radius: 5px;
+        	background-color: black;
+        	color: white;
+        	width: 60px;
+        	height: 40px;
+        }
