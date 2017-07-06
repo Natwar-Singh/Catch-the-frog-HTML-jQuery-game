@@ -1,4 +1,5 @@
 var id;
+var counted = 0;
 var time=2000;
 jQuery.fn.settimer=function()
 {
@@ -19,6 +20,7 @@ jQuery.fn.reposition=function()
       y=50;
     }
   this.css({"left":x,"top":y,"display":"inline-block"})
+  counted = 0;
   $('#frogaudio')[0].play();
   clearInterval(id);
   id=this.settimer();
@@ -33,7 +35,13 @@ jQuery(document).ready(function(){
     id=jQuery("#tap").settimer();
     jQuery("#tap").click(function()
     {
-      count++;
+      if (counted == 0) {
+        count++;
+        counted = 1;
+      }
+      else{
+        return;
+      }
       $("#tap").attr("src","/frog/sources/dead.png");
       $(".tap_wrap").css("cursor","url('/frog/sources/punchclick.png'),auto");
       $("#tap").css("cursor","url('/frog/sources/punchclick.png'),auto");
@@ -44,7 +52,7 @@ jQuery(document).ready(function(){
         $(".tap_wrap").css("cursor","url('/frog/sources/punch.png'),auto");
         $("#tap").css("cursor","url('/frog/sources/punch.png'),auto");
         jQuery("#tap").reposition();},300)
-		
+
      jQuery("#score").html("SCORE:"+count);
     })
     var timer_id=setInterval(function(){
@@ -52,7 +60,7 @@ jQuery(document).ready(function(){
       jQuery("#timer").html("00:"+("0" +timer).slice(-2));
     },1000);
 
-	setTimeout(function(){ 
+	setTimeout(function(){
       jQuery("#timer").html("00:00");
       clearInterval(id);
       clearInterval(timer_id);
@@ -65,7 +73,7 @@ jQuery(document).ready(function(){
     {
       location.reload();
     })
-	$('.tap_wrap').click(function(e) 
+	$('.tap_wrap').click(function(e)
 	{
       var offset = $(this).offset();
       var x=(e.pageX - offset.left);
@@ -75,7 +83,7 @@ jQuery(document).ready(function(){
         {
       	  $("#opps").css("display","none");
 		},300)
-    
+
     });
   },5000);
   setTimeout(function()
