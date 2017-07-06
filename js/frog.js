@@ -42,15 +42,15 @@ jQuery(document).ready(function(){
       else{
         return;
       }
-      $("#tap").attr("src","/frog/sources/dead.png");
-      $(".tap_wrap").css("cursor","url('/frog/sources/punchclick.png'),auto");
-      $("#tap").css("cursor","url('/frog/sources/punchclick.png'),auto");
+      $("#tap").attr("src","sources/dead.png");
+      $(".tap_wrap").css("cursor","url('sources/punchclick.png'),auto");
+      $("#tap").css("cursor","url('sources/punchclick.png'),auto");
       clearInterval(id);
       $('#chatAudio')[0].play();
       setTimeout(function(){
-        $("#tap").attr("src","/frog/sources/frog.png");
-        $(".tap_wrap").css("cursor","url('/frog/sources/punch.png'),auto");
-        $("#tap").css("cursor","url('/frog/sources/punch.png'),auto");
+        $("#tap").attr("src","sources/frog.png");
+        $(".tap_wrap").css("cursor","url('sources/punch.png'),auto");
+        $("#tap").css("cursor","url('sources/punch.png'),auto");
         jQuery("#tap").reposition();},300)
 
      jQuery("#score").html("SCORE:"+count);
